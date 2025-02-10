@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Juros do Tesouro Direto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Juros do Tesouro Direto</h1>
+        <form id="calculator-form">
+            <label for="final-date">Data Final:</label>
+            <input type="date" id="final-date" required>
+
+            <label for="current-price">Preço Atual (R$):</label>
+            <input type="number" id="current-price" step="0.01" required>
+
+            <label for="current-date">Data Atual:</label>
+            <input type="date" id="current-date" required>
+
+            <label for="taxa-tesouro">Taxa de Juros do Tesouro (%):</label>
+            <input type="number" id="taxa-tesouro" step="0.01" required>
+
+            <label for="taxa-selic">Taxa Selic Atual (%):</label>
+            <input type="number" id="taxa-selic" step="0.01" required>
+
+            <label>
+                <input type="checkbox" id="resgate-adiantado-checkbox"> Calcular resgate antecipado
+            </label>
+
+            <div id="resgate-adiantado-campos" style="display: none;">
+                <label for="selic">Selic na data do resgate antecipado (%):</label>
+                <input type="number" id="selic" step="0.01">
+
+                <label for="time-x">Tempo decorrido para resgate antecipado (dias):</label>
+                <input type="number" id="time-x">
+            </div>
+
+            <label>
+                <input type="checkbox" id="reinvestir-checkbox"> Calcular reinvestimento em novo investimento
+            </label>
+
+            <div id="reinvestimento-campos" style="display: none;">
+                <label for="new-dy">Taxa de rendimento do novo investimento (%):</label>
+                <input type="number" id="new-dy" step="0.01">
+            </div>
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        <div id="results">
+            <h2>Resultados:</h2>
+            <p><strong>Rendimento do Tesouro até a data final:</strong> <span id="rendimento-tesouro"></span></p>
+            <p><strong>Rendimento de atual até X (resgate antecipado):</strong> <span id="rendimento-ate-x"></span></p>
+            <p><strong>Rendimento total considerando reinvestimento em novo DY:</strong> <span id="rendimento-total"></span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
